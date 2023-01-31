@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+}
+
+.container{
+    margin-top: 2em;
+}
+
+.title{
+    width: 40%;
+    margin: 2em auto;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    border-bottom: 1px solid rgb(30, 247, 1);
+}
+
+.buttons{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.options , .btn-reset{
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: rgb(76, 0, 255);
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.options:hover{
+    transition: 0.2s all linear;
+    background: rgb(25, 25, 179);
+}
+
+
+.game{
+   width: 33.3%;
+   margin: 4em auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;
+   border-radius: 0.5rem;
+   background: rgb(255, 255, 255);
+}
+
+.case{
+    margin: 0.2rem;
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    border-radius: 0.2rem;
+    border: 1px solid rgb(30, 247, 1);
+}
+
+.case:hover{
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(25, 25, 179);
+}
+
+.item{
+    font-size: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.multiply , .circle{
+    color: #f14;
+}
+
+.visible , .popup{
+    display: none;
+}
+
+
+.winner{
+    font-weight: 800;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    background:#000;
+}
+
