@@ -1,0 +1,44 @@
+/* Dark Theme */
+
+body.dark{
+    transition: 0.2s all ease-in-out;
+    background: rgb(1, 4, 14);
+    color: rgb(30, 255, 0);
+}
+
+body.dark .buttons > button{
+    background: #fff;
+    color: #09ee;
+    font-weight: 600;
+      transition: 0.2s all ease-in;
+}
+
+body.dark .buttons > button:hover{
+    transition: 0.2s all ease-in;
+    background: #09ee;
+    color: #fff;
+}
+
+body.dark .case{
+    background: rgb(22, 8, 22);
+}
+
+body.dark .winner{
+    box-shadow: 0.3rem 0.3rem 0.3remrgb(0, 0, 0);
+     background: rgb(22, 8, 22);
+    color: #fff;
+}
+
+/* Media queries */
+
+@media(max-width: 800px){
+    .game{
+        width: 80%;
+    }
+}
+
+@media(max-width: 500px){
+    .game{
+        width: 100%;
+    }
+}

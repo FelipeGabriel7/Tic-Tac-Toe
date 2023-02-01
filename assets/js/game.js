@@ -4,12 +4,14 @@ class Game {
     this.playerTwo = playerTwo;
     this.x = "X";
     this.circle = "O";
+    this.inteligence = 0;
+    this.counter = 0;
+    this.filled = 0;
     this.element;
     this.caseItem = document.querySelectorAll(`.case`);
     this.one = document.querySelector(`.one`);
     this.two = document.querySelector(`.two`);
     this.game = document.querySelector(`.game-init`);
-    this.points = 0;
   }
 
   playersInGame() {
@@ -19,6 +21,9 @@ class Game {
       this.one.classList.add(`visible`);
       this.two.classList.add(`visible`);
       this.player = 0;
+      this.playerTwo = this.inteligence;
+
+      this.addItemAI();
     });
 
     this.two.addEventListener(`click`, () => {
@@ -28,6 +33,8 @@ class Game {
       this.two.classList.add(`visible`);
       this.player = 0;
       this.playerTwo = 0;
+
+      this.addItem();
     });
   }
 
@@ -41,11 +48,63 @@ class Game {
     return this.element;
   }
 
+  playerGameAI() {
+    if (this.player === this.inteligence) {
+      this.element = this.x;
+    } else {
+      this.element = this.circle;
+    }
+
+    return this.element;
+  }
+
+  addItemAI() {
+    for (let i = 0; i < this.caseItem.length; i++) {
+      this.caseItem[i].addEventListener(`click`, () => {
+        this.playerGameAI();
+
+        let cloneElement = this.element;
+
+        if (this.player === this.inteligence) {
+          this.player++;
+
+          if (this.inteligence) {
+            this.inteligence++;
+          }
+        } else {
+          this.playerTwo++;
+        }
+
+        console.log(cloneElement);
+
+        for (let i = 0; i < this.caseItem.length; i++) {
+          const randomNumber = Math.floor(
+            Math.random() * (this.caseItem.length - 0) + 0
+          );
+
+          if (this.caseItem[i].innerHTML == 0) {
+            console.log(this.caseItem[i]);
+
+            this.caseItem[randomNumber].innerHTML = cloneElement;
+            this.counter++;
+
+            break;
+          } else {
+            this.filled++;
+          }
+
+          this.winGame();
+        }
+      });
+    }
+  }
+
   addItem() {
     this.caseItem.forEach((caseIt) => {
       caseIt.addEventListener(`click`, () => {
-          this.playerGame();
-         
+        this.playerGame();
+
+        this.counter += 1;
 
         if (caseIt.innerHTML == 0) {
           let cloneElement = this.element;
@@ -176,18 +235,13 @@ class Game {
       this.playerTwo++;
     }
 
-    // velha
+    if (this.counter === 9) {
+      setTimeout(() => {
+        this.counter = 0;
+      }, 500);
 
-    let count = 0;
-
-    for (let i = 0; i < this.caseItem.length; i++) {
-      if (this.caseItem[i] != undefined) {
-        count++;
-      }
-    }
-
-    if (count === 9) {
-      console.log(`Deu velha`);
+      console.log(this.counter);
+      return this.drawGame();
     }
   }
 
@@ -209,9 +263,12 @@ class Game {
       }, 2000);
     });
   }
+
+  drawGame() {
+    this.messageWinner(` Deu velha `);
+  }
 }
 
 const game = new Game();
 game.playersInGame();
-game.addItem();
 game.resetGame();

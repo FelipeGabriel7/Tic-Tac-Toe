@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/game.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
      <title> Tic Tac Toe </title>
 </head>
 <body>
@@ -14,6 +15,9 @@
        
 
         <section class="container">
+
+                    <button class="theme"> <img src="assets/images/icons8-paleta-de-pintura-32.png">    </button>
+
                 <div class="title">
                     <h1 class="title-game"> Tic Tac Toe </h3>
                 </div>
@@ -30,27 +34,26 @@
                         <button class="btn-reset"> Reiniciar </button>
                     </div>
                 </section>
+        </section>
 
+        <section class="game-init visible">
 
-                <section class="game-init visible">
-
-                        <div class="game ">
-                            <div class="case" id="b1"></div>
-                            <div class="case" id="b2"></div>
-                            <div class="case" id="b3"></div>
-                            <div class="case" id="b4"></div>
-                            <div class="case" id="b5"></div>
-                            <div class="case" id="b6"></div>
-                            <div class="case" id="b7"></div>
-                            <div class="case" id="b8"></div>
-                            <div class="case" id="b9"></div>
-                        </div>
-                        
-    
-                </section>
-          
+                <div class="game">
+                    <div class="case" id="b1"></div>
+                    <div class="case" id="b2"></div>
+                    <div class="case" id="b3"></div>
+                    <div class="case" id="b4"></div>
+                    <div class="case" id="b5"></div>
+                    <div class="case" id="b6"></div>
+                    <div class="case" id="b7"></div>
+                    <div class="case" id="b8"></div>
+                    <div class="case" id="b9"></div>
+                </div>
+        
         </section>
     </main>
+       <script src="assets/js/theme.js"></script>
     <script src="assets/js/game.js"></script>
+ 
 </body>
 </html>
