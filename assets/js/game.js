@@ -21,7 +21,7 @@ class Game {
       this.one.classList.add(`visible`);
       this.two.classList.add(`visible`);
       this.player = 0;
-      this.playerTwo = this.inteligence;
+      this.inteligence = 0;
 
       this.addItemAI();
     });
@@ -52,9 +52,8 @@ class Game {
     if (this.player === this.inteligence) {
       this.element = this.x;
     } else {
-      this.element = this.circle;
+      this.element = this.x;
     }
-
     return this.element;
   }
 
@@ -67,34 +66,38 @@ class Game {
 
         if (this.player === this.inteligence) {
           this.player++;
-
-          if (this.inteligence) {
-            this.inteligence++;
-          }
         } else {
-          this.playerTwo++;
+          this.player++;
         }
 
-        console.log(cloneElement);
+        this.caseItem[i].innerHTML = cloneElement;
+        this.counter++;
 
         for (let i = 0; i < this.caseItem.length; i++) {
           const randomNumber = Math.floor(
-            Math.random() * (this.caseItem.length - 0) + 0
+            Math.random() * (this.caseItem.length - 0) + 0 
           );
 
-          if (this.caseItem[i].innerHTML == 0) {
-            console.log(this.caseItem[i]);
+      
 
-            this.caseItem[randomNumber].innerHTML = cloneElement;
-            this.counter++;
-
-            break;
-          } else {
-            this.filled++;
+          if (this.caseItem[i].innerHTML == 0 || this.caseItem[i].innerHTML == undefined) {
+            
+            if (this.caseItem[randomNumber].innerHTML == 0) {
+              
+              this.caseItem[randomNumber].innerHTML = this.circle;
+              this.counter++;
+              break;
+            } else {
+              this.filled++;
+            }
           }
-
-          this.winGame();
         }
+
+        if (this.counter === 9 && this.filled === 9) {
+          this.drawGame();
+        }
+
+        this.winGame();
       });
     }
   }

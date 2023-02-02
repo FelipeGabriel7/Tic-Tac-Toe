@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     outline: none;
@@ -8,17 +8,24 @@
     box-sizing: border-box;
 }
 
-html{
+html {
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
-body{
+body {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 }
 
-.theme{
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.theme {
     border: none;
     background: #09ee;
     padding: 0.3rem;
@@ -35,18 +42,18 @@ body{
 }
 
 
-.theme:hover{
+.theme:hover {
     transition: 0.2s all linear;
     background: #fff;
 }
 
 
 
-.container{
+.container {
     margin-top: 2em;
 }
 
-.title{
+.title {
     width: 40%;
     margin: 2em auto;
     font-size: 2em;
@@ -56,16 +63,29 @@ body{
     text-align: center;
     font-weight: 600;
     border-bottom: 1px solid rgb(30, 247, 1);
+    animation: titleAnimation 1s ease-in-out;
 }
 
-.buttons{
+@keyframes titleAnimation {
+    0% {
+        transition: 0.3s all linear;
+        transform: translateY(-500px);
+    }100% {
+        transition: 0.3s all linear;
+        transform: translateY(-0px);
+    }
+
+
+}
+
+.buttons {
     display: flex;
     gap: 2rem;
     align-items: center;
     justify-content: center;
 }
 
-.options , .btn-reset{
+.options, .btn-reset {
     padding: 1rem 2rem;
     border: none;
     border-radius: 0.5rem;
@@ -75,29 +95,29 @@ body{
     cursor: pointer;
 }
 
-.options:hover{
+.options:hover {
     transition: 0.2s all linear;
     background: rgb(25, 25, 179);
 }
 
-.game-init{
+.game-init {
     display: flex;
     justify-content: center;
 }
 
 
-.game{
-   width: 40%;
-   height: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 0.5rem;
-   flex-wrap: wrap;
-   border-radius: 0.5rem;
+.game {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
 }
 
-.case{
+.case {
     display: flex;
     font-size: 2.5em;
     justify-content: center;
@@ -111,12 +131,12 @@ body{
     border: 1px solid rgb(30, 247, 1);
 }
 
-.case:hover{
+.case:hover {
     background: rgb(255, 255, 255);
     border: 1px solid rgb(25, 25, 179);
 }
 
-.item{
+.item {
     font-size: 5em;
     display: flex;
     justify-content: center;
@@ -124,16 +144,16 @@ body{
     font-weight: bold;
 }
 
-.multiply , .circle{
+.multiply, .circle {
     color: #f14;
 }
 
-.visible , .popup{
+.visible, .popup {
     display: none;
 }
 
 
-.winner{
+.winner {
     position: absolute;
     top: 20%;
     right: 0;
@@ -150,6 +170,12 @@ body{
     padding: 2rem;
     border-radius: 0.5rem;
     color: #fff;
-    background:#000;
+    background: #000;
 }
 
+.end {
+    display: flex;
+    color: #4b4b4b;
+    justify-content: center;
+    align-items: flex-ends;
+}
